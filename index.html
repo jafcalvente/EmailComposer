@@ -15,6 +15,7 @@
       <p class="card-header">Send E-mail</p>
       <div class="card-block">
         <form name="emailForm">
+
           <!-- Recipients -->
           <div class="form-group" ng-class="{'has-danger': emailForm.emailTo.$error.multipleEmails}">
             <textarea rows="1" class="form-control" id="inputEmailTo" name="emailTo" placeholder="To"
@@ -41,17 +42,32 @@
             ng-model="vm.email.message" required></textarea>
           </div>
 
+          <!-- Thumbnails -->
+          <div ng-if="vm.images.length > 0">
+            <span>Attached files</span>
+            <div class="gallery">
+              <div class="thumbnail" ng-repeat="img in vm.images" style="background-image: url('{{img.thumbnail}}');" ng-click="vm.deleteImage($index)">
+                <div>
+                  <span class="btn rounded-circle text-center">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Buttons -->
           <div class="button-panel">
-            <span href="#" id="btnAttach" class="btn rounded-circle text-center">
+            <input type="file" id="inputFile" ng-model="vm.email.attached" multiple></input>
+            <button type="button" id="btnAttach" class="btn rounded-circle text-center" ng-click="vm.openInputFile()">
               <i class="fa fa-paperclip" aria-hidden="true"></i>
-            </span>
-            <span href="#" id="btnSend" class="btn"
+            </button>
+            <button type="button" id="btnSend" class="btn"
             ng-disabled="emailForm.$invalid || (!vm.email.to && !vm.email.cc && !vm.email.bcc)">
               <i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;Send
-            </span>
+            </button>
           </div>
-          
+
         </form>
       </div>
     </div>
@@ -62,7 +78,8 @@
   <script type="text/javascript" src="js/tether.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/angular.min.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/ng-file-input.min.js"></script>
+  <script type="text/javascript" src="js/app.module.js"></script>
   <script type="text/javascript" src="js/multiple-emails.directive.js"></script>
 </body>
 </html>

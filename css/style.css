@@ -10,7 +10,8 @@ body {
 }
 .card {
   border: none;
-  min-width: 600px;
+  min-width: 685px;
+  max-width: 685px;
 }
 .card .card-header {
   background-color: #084358;
@@ -23,22 +24,69 @@ body {
   color: #959595;
   padding: 2.1rem;
 }
+.card .card-block .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+.card .card-block .gallery .thumbnail {
+  width: 110px;
+  height: 110px;
+  background-size: 110px 110px;
+  background-repeat: no-repeat;
+  margin: 0.5rem;
+  border-radius: 0.3rem;
+}
+.card .card-block .gallery .thumbnail span {
+  display: none;
+}
+.card .card-block .gallery .thumbnail:hover {
+  cursor: pointer;
+}
+.card .card-block .gallery .thumbnail:hover div {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card .card-block .gallery .thumbnail:hover div span {
+  display: inline-block;
+  background-color: #959595;
+}
+.card .card-block .gallery .thumbnail:hover div span i {
+  color: #ffffff;
+  font-size: 25px;
+  line-height: 36px;
+}
 .card .card-block .button-panel {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
 }
+.card .card-block .button-panel #inputFile {
+  display: none;
+}
 .card .card-block .button-panel #btnAttach {
+  cursor: pointer;
   border-color: #959595;
   border-radius: 50%;
   width: 38px;
   height: 38px;
   padding: 0;
+  background-color: transparent;
 }
 .card .card-block .button-panel #btnAttach i {
+  color: #959595;
   font-size: 25px;
   line-height: 36px;
 }
 .card .card-block .button-panel #btnSend {
+  cursor: pointer;
   border: none;
   width: 100px;
   border-radius: 2rem;
@@ -46,6 +94,7 @@ body {
   color: #ffffff;
 }
 .card .card-block .button-panel #btnSend[disabled] {
+  cursor: not-allowed;
   background-color: #e0e0e0;
   color: #959595;
 }

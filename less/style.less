@@ -1,13 +1,4 @@
-// Variables
-@global-color-text: rgb(149,149,149);
-@global-color-placeholder: rgba(0,0,0,.35);
-@main-color-bg: linear-gradient(to bottom, rgb(0,190,240), rgb(79,210,220));
-@modalHeader-color-bg: rgb(8,67,88);
-@modalHeader-color-text: white;
-@button-disabled-color-bg: rgb(224,224,224);
-@button-enabled-color-bg: rgb(18,200,237);
-@button-enabled-color-text: white;
-@error-color: red;
+@import "variables.less";
 
 // Styles
 body {
@@ -24,7 +15,8 @@ body {
 
 .card {
   border: none;
-  min-width: 600px;
+  min-width: @main-panel-width;
+  max-width: @main-panel-width;
 
   .card-header {
     background-color: @modalHeader-color-bg;
@@ -38,29 +30,89 @@ body {
     color: @global-color-text;
     padding: 2.1rem;
 
+    // Image gallery
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: -@thumbnail-gap;
+      margin-left: -@thumbnail-gap;
+      margin-right: -@thumbnail-gap;
+
+      .thumbnail {
+        width: @thumbnail-size;
+        height: @thumbnail-size;
+        background-size: @thumbnail-size @thumbnail-size;
+        background-repeat: no-repeat;
+        margin: @thumbnail-gap;
+        border-radius: @thumbnail-border-radius;
+
+        // Hide trash icon
+        span {
+          display: none;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          // Opaque layer
+          div {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: @thumbnail-border-radius;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            // Show trash icon
+            span {
+              display: inline-block;
+              background-color: @global-color-text;
+              i {
+                color: @button-enabled-color-text;
+                font-size: 25px;
+                line-height: 36px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Button panel
     .button-panel {
+      margin-top: 1rem;
       display: flex;
       justify-content: space-between;
 
+      #inputFile {
+        display: none;
+      }
+
       #btnAttach {
+        cursor: pointer;
         border-color: @global-color-text;
         border-radius: 50%;
         width: 38px;
         height: 38px;
         padding: 0;
+        background-color: transparent;
         i {
+          color: @global-color-text;
           font-size: 25px;
           line-height: 36px;
         }
       }
 
       #btnSend {
+        cursor: pointer;
         border: none;
         width: 100px;
         border-radius: 2rem;
         background-color: @button-enabled-color-bg;
         color: @button-enabled-color-text;
         &[disabled] {
+          cursor: not-allowed;
           background-color: @button-disabled-color-bg;
           color: @global-color-text;
         }
