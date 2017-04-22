@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="emailComposerApp">
 <head>
   <meta charset="utf-8">
   <title>Email Composer</title>
@@ -11,33 +11,47 @@
 </head>
 <body>
   <div class="main">
-    <div class="card">
+    <div class="card" ng-controller="MainController as vm" ng-cloak>
       <p class="card-header">Send E-mail</p>
       <div class="card-block">
-        <form>
-          <div class="form-group">
-            <input type="email" class="form-control" id="inputEmailTo" placeholder="To"></input>
+        <form name="emailForm">
+          <!-- Recipients -->
+          <div class="form-group" ng-class="{'has-danger': emailForm.emailTo.$error.multipleEmails}">
+            <textarea rows="1" class="form-control" id="inputEmailTo" name="emailTo" placeholder="To"
+            ng-model="vm.email.to" multiple-emails></textarea>
           </div>
-          <div class="form-group">
-            <input type="email" class="form-control" id="inputEmailCC" placeholder="CC"></input>
+          <div class="form-group" ng-class="{'has-danger': emailForm.emailCC.$error.multipleEmails}">
+            <textarea rows="1" class="form-control" id="inputEmailCC" name="emailCC" placeholder="CC"
+            ng-model="vm.email.cc" multiple-emails></textarea>
           </div>
-          <div class="form-group">
-            <input type="email" class="form-control" id="inputEmailBCC" placeholder="BCC"></input>
+          <div class="form-group" ng-class="{'has-danger': emailForm.emailBCC.$error.multipleEmails}">
+            <textarea rows="1" class="form-control" id="inputEmailBCC" name="emailBCC" placeholder="BCC"
+            ng-model="vm.email.bcc" multiple-emails></textarea>
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputSubject" placeholder="Subject"></input>
+
+          <!-- Subject -->
+          <div class="form-group" ng-class="{'has-danger': emailForm.subject.$error.maxlength}">
+            <input type="text" class="form-control" id="inputSubject" name="subject" placeholder="Subject"
+            ng-model="vm.email.subject" ng-maxlength="100" required></input>
           </div>
+
+          <!-- Message -->
           <div class="form-group">
-            <textarea class="form-control" id="taMessage" rows="8" placeholder="Message"></textarea>
+            <textarea class="form-control" id="taMessage" rows="8" placeholder="Message"
+            ng-model="vm.email.message" required></textarea>
           </div>
+
+          <!-- Buttons -->
           <div class="button-panel">
             <span href="#" id="btnAttach" class="btn rounded-circle text-center">
               <i class="fa fa-paperclip" aria-hidden="true"></i>
             </span>
-            <span href="#" id="btnSend" class="btn">
+            <span href="#" id="btnSend" class="btn"
+            ng-disabled="emailForm.$invalid || (!vm.email.to && !vm.email.cc && !vm.email.bcc)">
               <i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;Send
             </span>
           </div>
+          
         </form>
       </div>
     </div>
@@ -47,6 +61,8 @@
   <script type="text/javascript" src="js/jquery-3.1.1.slim.min.js"></script>
   <script type="text/javascript" src="js/tether.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/angular.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/multiple-emails.directive.js"></script>
 </body>
 </html>

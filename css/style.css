@@ -17,11 +17,11 @@ body {
   color: #ffffff;
   font-size: 1.2rem;
   font-weight: lighter;
-  padding: 2rem 0 2rem 2.2rem;
+  padding: 1.5rem 0 1.5rem 2.1rem;
 }
 .card .card-block {
   color: #959595;
-  padding: 2.2rem;
+  padding: 2.1rem;
 }
 .card .card-block .button-panel {
   display: flex;
@@ -42,7 +42,15 @@ body {
   border: none;
   width: 100px;
   border-radius: 2rem;
+  background-color: #12c8ed;
+  color: #ffffff;
+}
+.card .card-block .button-panel #btnSend[disabled] {
   background-color: #e0e0e0;
+  color: #959595;
+}
+.error {
+  border: #ff0000 solid 2px;
 }
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */

@@ -4,7 +4,10 @@
 @main-color-bg: linear-gradient(to bottom, rgb(0,190,240), rgb(79,210,220));
 @modalHeader-color-bg: rgb(8,67,88);
 @modalHeader-color-text: white;
-@button-color-bg: rgb(224,224,224);
+@button-disabled-color-bg: rgb(224,224,224);
+@button-enabled-color-bg: rgb(18,200,237);
+@button-enabled-color-text: white;
+@error-color: red;
 
 // Styles
 body {
@@ -28,12 +31,12 @@ body {
     color: @modalHeader-color-text;
     font-size: 1.2rem;
     font-weight: lighter;
-    padding: 2rem 0 2rem 2.2rem;
+    padding: 1.5rem 0 1.5rem 2.1rem;
   }
 
   .card-block {
     color: @global-color-text;
-    padding: 2.2rem;
+    padding: 2.1rem;
 
     .button-panel {
       display: flex;
@@ -55,10 +58,19 @@ body {
         border: none;
         width: 100px;
         border-radius: 2rem;
-        background-color: @button-color-bg;
+        background-color: @button-enabled-color-bg;
+        color: @button-enabled-color-text;
+        &[disabled] {
+          background-color: @button-disabled-color-bg;
+          color: @global-color-text;
+        }
       }
     }
   }
+}
+
+.error {
+  border: @error-color solid 2px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
