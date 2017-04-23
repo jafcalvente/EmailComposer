@@ -48,7 +48,4 @@ It also has to be possible to attach images to the email.
 ### Local mode
 You can download the project on ZIP file by clicking on the 'Clone or download' button. Then, you just unzip it and run the 'index.html' file.
 ### Online mode
-The application is deployed on Heroku, so you can watch it by clicking on the link:
-```
-[HerokuApp](https://email-composer.herokuapp.com/)
-```
+The application is deployed on Heroku, so you can watch it by clicking on the [link.](https://email-composer.herokuapp.com)
