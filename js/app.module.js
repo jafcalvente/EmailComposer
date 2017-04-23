@@ -1,7 +1,8 @@
 angular.module('emailComposerApp', [
-    'ng-file-input'
+    'ng-file-input',
+    'pascalprecht.translate'
   ])
-  .controller('MainController', ['$scope', '$timeout', function($scope, $timeout) {
+  .controller('MainController', ['$scope', '$timeout', '$translate', function($scope, $timeout, $translate) {
 
     var vm = this;
 
@@ -9,6 +10,7 @@ angular.module('emailComposerApp', [
     vm.email = {};
     vm.deleteImage = deleteImage;
     vm.openInputFile = openInputFile;
+    vm.changeLanguage = changeLanguage;
 
     // Watcher for changes on uploaded files
     $scope.$watch('vm.email.attached', function(files) {
@@ -49,5 +51,12 @@ angular.module('emailComposerApp', [
       // Opening input file component
       angular.element('#inputFile').trigger('click');
     };
+
+    /**
+     * Change the language.
+     */
+    function changeLanguage(key) {
+      $translate.use(key);
+    }
 
   }]);

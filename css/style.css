@@ -1,12 +1,38 @@
 body {
+  background: -webkit-linear-gradient(top, #00bef0, #4fd2dc);
   background: linear-gradient(to bottom, #00bef0, #4fd2dc);
   background-attachment: fixed;
 }
+header {
+  position: fixed;
+  right: .5rem;
+  top: .5rem;
+}
+header img {
+  width: 45px;
+  height: 25px;
+  border: 2px solid transparent;
+  -webkit-transition: border-color 0.5s ease-in-out;
+          transition: border-color 0.5s ease-in-out;
+}
+header img:hover {
+  cursor: pointer;
+  border-color: #084358;
+}
 .main {
   height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .card {
   border: none;
@@ -25,8 +51,13 @@ body {
   padding: 2.1rem;
 }
 .card .card-block .gallery {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   margin-top: -0.5rem;
   margin-left: -0.5rem;
   margin-right: -0.5rem;
@@ -39,20 +70,34 @@ body {
   margin: 0.5rem;
   border-radius: 0.3rem;
 }
-.card .card-block .gallery .thumbnail span {
+.card .card-block .gallery .thumbnail div {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition: background-color 0.5s ease-in-out;
+          transition: background-color 0.5s ease-in-out;
+}
+.card .card-block .gallery .thumbnail div span {
   display: none;
 }
 .card .card-block .gallery .thumbnail:hover {
   cursor: pointer;
 }
 .card .card-block .gallery .thumbnail:hover div {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .card .card-block .gallery .thumbnail:hover div span {
   display: inline-block;
@@ -65,8 +110,14 @@ body {
 }
 .card .card-block .button-panel {
   margin-top: 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .card .card-block .button-panel #inputFile {
   display: none;
@@ -79,11 +130,18 @@ body {
   height: 38px;
   padding: 0;
   background-color: transparent;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+          transition: transform 0.5s ease-in-out;
 }
 .card .card-block .button-panel #btnAttach i {
   color: #959595;
   font-size: 25px;
   line-height: 36px;
+}
+.card .card-block .button-panel #btnAttach:hover {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .card .card-block .button-panel #btnSend {
   cursor: pointer;
