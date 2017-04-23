@@ -50,5 +50,5 @@ You can download the project on ZIP file by clicking on the 'Clone or download' 
 ### Online mode
 The application is deployed on Heroku, so you can watch it by clicking on the link:
 ```
-[App on Heroku](https://email-composer.herokuapp.com/)
+[HerokuApp](https://email-composer.herokuapp.com/)
 ```
