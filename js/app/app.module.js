@@ -44,7 +44,7 @@ angular.module('emailComposerApp', [
     /**
      * Open file selector.
      */
-    function openInputFile($event) {
+    function openInputFile() {
       // Cleaning input in order to can reuse it
       angular.element('#inputFile').val('');
 

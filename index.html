@@ -16,7 +16,7 @@
     <img ng-src="svg/Flag_of_Spain.svg" ng-click="vm.changeLanguage('es')" ng-model="vm.langEs"/>
   </header>
 
-  <div class="main">
+  <div class="main" id="templateId.html">
     <div class="card">
       <p class="card-header">{{ 'title' | translate }}</p>
       <div class="card-block">
@@ -80,14 +80,14 @@
   </div>
 
   <!-- JavaScript -->
-  <script type="text/javascript" src="js/jquery-3.1.1.slim.min.js"></script>
-  <script type="text/javascript" src="js/tether.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/angular.min.js"></script>
-  <script type="text/javascript" src="js/angular-translate.min.js"></script>
-  <script type="text/javascript" src="js/ng-file-input.min.js"></script>
-  <script type="text/javascript" src="js/app.module.js"></script>
-  <script type="text/javascript" src="js/app.config.js"></script>
-  <script type="text/javascript" src="js/multiple-emails.directive.js"></script>
+  <script type="text/javascript" src="js/lib/jquery-3.1.1.slim.min.js"></script>
+  <script type="text/javascript" src="js/lib/tether.min.js"></script>
+  <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/lib/angular.min.js"></script>
+  <script type="text/javascript" src="js/lib/angular-translate.min.js"></script>
+  <script type="text/javascript" src="js/lib/ng-file-input.min.js"></script>
+  <script type="text/javascript" src="js/app/app.module.js"></script>
+  <script type="text/javascript" src="js/app/app.config.js"></script>
+  <script type="text/javascript" src="js/app/multiple-emails.directive.js"></script>
 </body>
 </html>
