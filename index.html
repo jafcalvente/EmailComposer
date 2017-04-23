@@ -52,7 +52,8 @@
           <div ng-if="vm.images.length > 0">
             <span>{{ 'attached.files' | translate }}</span>
             <div class="gallery">
-              <div class="thumbnail" ng-repeat="img in vm.images" style="background-image: url('{{img.thumbnail}}');" ng-click="vm.deleteImage($index)">
+              <div class="thumbnail" ng-repeat="img in vm.images" style="background-image: url('{{img.thumbnail}}');" ng-click="vm.deleteImage($index)"
+               data-toggle="tooltip" title="{{img.title}}">
                 <div>
                   <span class="btn rounded-circle text-center">
                     <i class="fa fa-trash" aria-hidden="true"></i>
@@ -65,7 +66,8 @@
           <!-- Buttons -->
           <div class="button-panel">
             <input type="file" id="inputFile" ng-model="vm.email.attached" multiple></input>
-            <button type="button" id="btnAttach" class="btn rounded-circle text-center" ng-click="vm.openInputFile()">
+            <button type="button" id="btnAttach" class="btn rounded-circle text-center" ng-click="vm.openInputFile()"
+            data-toggle="tooltip" title="{{ 'attached.tooltip' | translate }}">
               <i class="fa fa-paperclip" aria-hidden="true"></i>
             </button>
             <button type="button" id="btnSend" class="btn"

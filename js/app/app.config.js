@@ -7,7 +7,8 @@ angular.module('emailComposerApp')
       'subject': 'Subject',
       'send': 'Send',
       'message': 'Message',
-      'attached.files': 'Attached files'
+      'attached.files': 'Attached files',
+      'attached.tooltip': 'Attach images'
     });
 
     $translateProvider.translations('es', {
@@ -16,7 +17,8 @@ angular.module('emailComposerApp')
       'subject': 'Asunto',
       'send': 'Enviar',
       'message': 'Mensaje',
-      'attached.files': 'Ficheros adjuntos'
+      'attached.files': 'Ficheros adjuntos',
+      'attached.tooltip': 'Adjuntar imágenes'
     });
 
     $translateProvider.preferredLanguage('en');
