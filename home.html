@@ -9,76 +9,15 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-controller="MainController as vm" ng-cloak>
+<body ng-cloak>
 
-  <header>
+  <header ng-controller="languageController as vm">
     <img ng-src="images/Flag_of_UK.png" ng-click="vm.changeLanguage('en')" ng-model="vm.langEn"/>
     <img ng-src="images/Flag_of_Spain.png" ng-click="vm.changeLanguage('es')" ng-model="vm.langEs"/>
   </header>
 
   <div class="main">
-    <div class="card">
-      <p class="card-header">{{ 'title' | translate }}</p>
-      <div class="card-block">
-        <form name="emailForm">
-
-          <!-- Recipients -->
-          <div class="form-group" ng-class="{'has-danger': emailForm.emailTo.$error.multipleEmails}">
-            <textarea rows="1" class="form-control" id="inputEmailTo" name="emailTo" placeholder="{{ 'to' | translate }}"
-            ng-model="vm.email.to" multiple-emails></textarea>
-          </div>
-          <div class="form-group" ng-class="{'has-danger': emailForm.emailCC.$error.multipleEmails}">
-            <textarea rows="1" class="form-control" id="inputEmailCC" name="emailCC" placeholder="CC"
-            ng-model="vm.email.cc" multiple-emails></textarea>
-          </div>
-          <div class="form-group" ng-class="{'has-danger': emailForm.emailBCC.$error.multipleEmails}">
-            <textarea rows="1" class="form-control" id="inputEmailBCC" name="emailBCC" placeholder="BCC"
-            ng-model="vm.email.bcc" multiple-emails></textarea>
-          </div>
-
-          <!-- Subject -->
-          <div class="form-group" ng-class="{'has-danger': emailForm.subject.$error.maxlength}">
-            <input type="text" class="form-control" id="inputSubject" name="subject" placeholder="{{ 'subject' | translate }}"
-            ng-model="vm.email.subject" ng-maxlength="100" required></input>
-          </div>
-
-          <!-- Message -->
-          <div class="form-group">
-            <textarea class="form-control" id="taMessage" rows="8" placeholder="{{ 'message' | translate }}"
-            ng-model="vm.email.message" required></textarea>
-          </div>
-
-          <!-- Thumbnails -->
-          <div ng-if="vm.images.length > 0">
-            <span>{{ 'attached.files' | translate }}</span>
-            <div class="gallery">
-              <div class="thumbnail" ng-repeat="img in vm.images" style="background-image: url('{{img.thumbnail}}');" ng-click="vm.deleteImage($index)"
-               data-toggle="tooltip" title="{{img.title}}">
-                <div>
-                  <span class="btn rounded-circle text-center">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Buttons -->
-          <div class="button-panel">
-            <input type="file" id="inputFile" ng-model="vm.email.attached" multiple></input>
-            <button type="button" id="btnAttach" class="btn rounded-circle text-center" ng-click="vm.openInputFile()"
-            data-toggle="tooltip" title="{{ 'attached.tooltip' | translate }}">
-              <i class="fa fa-paperclip" aria-hidden="true"></i>
-            </button>
-            <button type="button" id="btnSend" class="btn"
-            ng-disabled="emailForm.$invalid || (!vm.email.to && !vm.email.cc && !vm.email.bcc)">
-              <i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;{{ 'send' | translate }}
-            </button>
-          </div>
-
-        </form>
-      </div>
-    </div>
+    <email-composer></email-composer>
   </div>
 
   <!-- JavaScript -->
@@ -91,5 +30,8 @@
   <script type="text/javascript" src="js/app/app.module.js"></script>
   <script type="text/javascript" src="js/app/app.config.js"></script>
   <script type="text/javascript" src="js/app/multiple-emails.directive.js"></script>
+  <script type="text/javascript" src="js/app/email-composer.component.js"></script>
+  <script type="text/javascript" src="js/app/language.controller.js"></script>
+
 </body>
 </html>
